@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/binary"
 	"fmt"
 	"net"
 	"os"
@@ -32,24 +31,6 @@ func main() {
 			os.Exit(1)
 		}
 
-		size_buf := make([]byte, 4)
-
-		_, err = conn.Read(size_buf)
-
-		if err != nil {
-			fmt.Println("Error reading size: ", err)
-			conn.Close()
-		}
-
-		size := binary.BigEndian.Uint32(size_buf)
-
-		buf := make([]byte, size)
-		_, err = conn.Read(buf)
-
-		if err != nil {
-			fmt.Println("Error reading size: ", err)
-
-		}
-		go handler.Handle(conn, buf, size)
+		go handler.Handle(conn)
 	}
 }
