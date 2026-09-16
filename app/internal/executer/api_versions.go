@@ -12,6 +12,11 @@ func api_versions(req parser.Payload, resp *response.ResponsePayload) *response.
 			Min_version: 0,
 			Max_version: 4,
 		},
+		{
+			Api_key:     75,
+			Min_version: 0,
+			Max_version: 0,
+		},
 	})
 
 	return resp
