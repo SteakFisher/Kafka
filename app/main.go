@@ -50,7 +50,6 @@ func main() {
 			fmt.Println("Error reading size: ", err)
 
 		}
-
 		go handler.Handle(conn, buf, size)
 	}
 }
